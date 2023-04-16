@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -126,6 +127,18 @@ STATIC_URL = 'static/'
 APPEND_SLASH = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SIMPLE_JWT = {
+    # For god sake, this token suppose to be short-lived.
+    # However, I am more concerned about deploying applications
+    # because we literally have less than a week to deploy the full thing.
+    # If you are from the security class, please forgive me.
+
+    # Also, in case that you fork this, please change it to something more secure.
+    # - Pontakorn Paesaeng
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30)
+}
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
