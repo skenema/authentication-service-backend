@@ -61,3 +61,8 @@ SIMPLE_JWT = {
 ```
 
 After this setup, you should be able to authenticate without sharing the same database.
+
+
+## TODO
+- [ ] Make it more secure by removing secret from being hardcoded.
+- [ ] Make it possible to use production database (probably Postgres or MySQL)
